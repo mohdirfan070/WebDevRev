@@ -1,7 +1,7 @@
 const N=(e,...p)=>({e,p});
 window.NOTES={
 // ---------- JAVASCRIPT ----------
-"Hoisting":N("Accessing variables before initializarion \n Before JavaScript runs your code, it first scans it and registers every variable and function name. So some things can be used before the line where you wrote them. Think of it as JS reading the whole menu before taking your order.",
+"Hoisting":N("Accessing variables before initialization \n Before JavaScript runs your code, it first scans it and registers every variable and function name. So some things can be used before the line where you wrote them. Think of it as JS reading the whole menu before taking your order.",
 "var is hoisted and starts as undefined, so using it early gives undefined, not an error.",
 "Function declarations are hoisted completely, so you can call them before they are written.",
 "let and const are hoisted too, but locked in the temporal dead zone until their line runs. Using them early throws ReferenceError.",
@@ -12,6 +12,8 @@ window.NOTES={
 "Each function call creates a new context, pushed on the Call Stack and popped when the function returns.",
 "Call Stack is last in, first out: the function on top runs first."),
 "Closures":N("A closure is a function that remembers the variables from the place where it was born, even after that outer function has finished. The inner function keeps a backpack with the outer variables inside.",
+"Function along with its lexical scope forms a closure",
+" Access of variables of outer function from inner function even after the outer function return;",
 "Closure = function + its lexical scope (the variables around it when it was written).",
 "Every call of the outer function creates a new, separate closure, so son1 and son2 have different money.",
 "Outer variables stay alive in memory as long as the inner function can still use them.",
@@ -22,6 +24,133 @@ window.NOTES={
 "const: block scope, cannot be reassigned. Objects and arrays declared with const can still be changed inside.",
 "Shadowing: a variable in an inner block with the same name hides the outer one only inside that block."),
 "Types of Functions":N("A function is a reusable block of instructions. JavaScript lets you write functions in many styles, and each one has a small difference you should know for interviews.",
+`/*
+ Functions are the instructions that are used to perform a particular tasks 
+
+Parameters: function greet(param1,param2){  these param1 and param2 are knows as Parameters that a func have
+
+}
+
+Arguments : greet("Morning","Irfan"); "Morning" & "Irfan" are knowns as arguments that we pass to a function
+
+What are anonymous functions in JavaScript
+Functions without name are known as Anonymous Functions. These are used to pass as args in functions 
+
+Function Statement
+A function statement in JavaScript, also known as a function declaration, is a way to define a function with a specific name. This type of function is hoisted, meaning it can be called before it is defined in the code
+
+
+
+
+1 Function Declarations : they are hoisted
+function greet() {
+    console.log("Hello, world!");
+}
+
+
+2 Function Expressions: assigning a function to a variable
+ These functions can be anonymous or named and are not hoisted
+const greet = function() {
+    console.log("Hello, world!");
+};
+
+Anonymous Function : function without name is an anonymous function
+        these functions are always used as values they can't be just declared like that(Function expression)
+    function(){
+        clg("hello Irfan");
+         }
+
+-> Named Function Expression:
+assigning a named function to variable is known as Named Function Expression
+    var a = function b(){
+        clg("Hello World");
+    }
+Note: If we called this function with its previous name then it'll generate an error (Ref error: b is not defined)
+
+3 Arrow Functions: Introduced in ES6, these provide a shorter syntax and do not have their own this context.
+const greet = () => {
+    console.log("Hello, world!");
+};
+
+4 Immediately Invoked Function Expressions (IIFEs): These functions are executed immediately after they are defined.
+
+(function() {
+    console.log("Hello, world!");
+})();
+
+5 Generator Functions: These functions can pause and resume their execution using the yield keyword.
+ 
+function* generatorFunction() {
+    yield 'Hello';
+    yield 'World';
+}
+
+const gen = generatorFunction();
+ console.log(gen.next().value);  // Output: Hello
+ //  console.log(gen.next().value);//Output: World 
+ // console.log(gen.next().done); // Output: true
+
+
+ example : 
+  function Hello(){
+    console.log("I'm FROM A FUNCTION");
+}
+function* generatorFunction() {
+    yield 'Hello';
+    yield Hello();
+    yield 'World';
+}
+
+const generateVar = generatorFunction();
+console.log(generateVar.next().value);
+generateVar.next();
+console.log(generateVar.next().value);
+generateVar.done;
+
+
+
+6 Async Functions: These functions return a Promise and can use the await keyword to pause execution until a promise is resolved.
+
+async function fetchData() {
+    const response = await fetch('https://api.example.com/data');
+    const data = await response.json();
+    console.log(data);
+}
+
+7 Constructor Functions: These are used to create objects and are called with the new keyword.
+
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+const person1 = new Person('Alice', 30);
+
+8 Firts CLass functions:
+The ability to use functions as values and return from a fucntion is known as First class function
+
+->Can be assigned to a variable
+->Can be pass as an args to a function
+->Can be return from a function
+
+9 High Order Functions
+
+->Takes functions as args
+->Return functions 
+
+function applyOperation(operation, a, b) {
+  return operation(a, b);
+}
+
+function sum(x, y) {
+  return x + y;
+}
+
+const result = applyOperation(sum, 3, 4);  // Returns: 7
+
+
+*/
+
+`,
 "Declaration: hoisted, has a name. Expression: stored in a variable, not hoisted.",
 "Arrow function: shorter syntax, no own this, cannot be used with new.",
 "IIFE runs immediately and keeps variables private. Generator uses function* and yield to pause and resume.",
