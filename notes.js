@@ -23,138 +23,33 @@ window.NOTES={
 "let: block scope (inside { }), can be reassigned, not redeclared in the same scope.",
 "const: block scope, cannot be reassigned. Objects and arrays declared with const can still be changed inside.",
 "Shadowing: a variable in an inner block with the same name hides the outer one only inside that block."),
-"Types of Functions":N("A function is a reusable block of instructions. JavaScript lets you write functions in many styles, and each one has a small difference you should know for interviews.",
-`/*
- Functions are the instructions that are used to perform a particular tasks 
+"Types of Functions": N(
+  "A function is a reusable block of instructions. JavaScript lets you write functions in many styles, and each one has a small difference you should know for interviews.",
 
-Parameters: function greet(param1,param2){  these param1 and param2 are knows as Parameters that a func have
+  "Parameters are variable names in the function definition. Arguments are the actual values passed when calling the function.",
 
-}
+  "Function Declaration (Function Statement): Named function that is hoisted and can be called before its definition.",
 
-Arguments : greet("Morning","Irfan"); "Morning" & "Irfan" are knowns as arguments that we pass to a function
+  "Function Expression: A function assigned to a variable. It can be anonymous or named and is not hoisted like a declaration.",
 
-What are anonymous functions in JavaScript
-Functions without name are known as Anonymous Functions. These are used to pass as args in functions 
+  "Anonymous Function: A function without a name. It is usually used as a value or callback.",
 
-Function Statement
-A function statement in JavaScript, also known as a function declaration, is a way to define a function with a specific name. This type of function is hoisted, meaning it can be called before it is defined in the code
+  "Named Function Expression: A named function assigned to a variable. The function name is available only inside the function.",
 
+  "Arrow Function: Shorter ES6 syntax, no own this, cannot be used with new.",
 
+  "IIFE (Immediately Invoked Function Expression): Runs immediately after creation and helps create private scope.",
 
+  "Generator Function: Uses function* and yield to pause and resume execution.",
 
-1 Function Declarations : they are hoisted
-function greet() {
-    console.log("Hello, world!");
-}
+  "Async Function: Always returns a Promise and allows use of await.",
 
+  "Constructor Function: Used with the new keyword to create objects.",
 
-2 Function Expressions: assigning a function to a variable
- These functions can be anonymous or named and are not hoisted
-const greet = function() {
-    console.log("Hello, world!");
-};
+  "First-Class Functions: Functions can be stored in variables, passed as arguments and returned from functions.",
 
-Anonymous Function : function without name is an anonymous function
-        these functions are always used as values they can't be just declared like that(Function expression)
-    function(){
-        clg("hello Irfan");
-         }
-
--> Named Function Expression:
-assigning a named function to variable is known as Named Function Expression
-    var a = function b(){
-        clg("Hello World");
-    }
-Note: If we called this function with its previous name then it'll generate an error (Ref error: b is not defined)
-
-3 Arrow Functions: Introduced in ES6, these provide a shorter syntax and do not have their own this context.
-const greet = () => {
-    console.log("Hello, world!");
-};
-
-4 Immediately Invoked Function Expressions (IIFEs): These functions are executed immediately after they are defined.
-
-(function() {
-    console.log("Hello, world!");
-})();
-
-5 Generator Functions: These functions can pause and resume their execution using the yield keyword.
- 
-function* generatorFunction() {
-    yield 'Hello';
-    yield 'World';
-}
-
-const gen = generatorFunction();
- console.log(gen.next().value);  // Output: Hello
- //  console.log(gen.next().value);//Output: World 
- // console.log(gen.next().done); // Output: true
-
-
- example : 
-  function Hello(){
-    console.log("I'm FROM A FUNCTION");
-}
-function* generatorFunction() {
-    yield 'Hello';
-    yield Hello();
-    yield 'World';
-}
-
-const generateVar = generatorFunction();
-console.log(generateVar.next().value);
-generateVar.next();
-console.log(generateVar.next().value);
-generateVar.done;
-
-
-
-6 Async Functions: These functions return a Promise and can use the await keyword to pause execution until a promise is resolved.
-
-async function fetchData() {
-    const response = await fetch('https://api.example.com/data');
-    const data = await response.json();
-    console.log(data);
-}
-
-7 Constructor Functions: These are used to create objects and are called with the new keyword.
-
-function Person(name, age) {
-    this.name = name;
-    this.age = age;
-}
-const person1 = new Person('Alice', 30);
-
-8 Firts CLass functions:
-The ability to use functions as values and return from a fucntion is known as First class function
-
-->Can be assigned to a variable
-->Can be pass as an args to a function
-->Can be return from a function
-
-9 High Order Functions
-
-->Takes functions as args
-->Return functions 
-
-function applyOperation(operation, a, b) {
-  return operation(a, b);
-}
-
-function sum(x, y) {
-  return x + y;
-}
-
-const result = applyOperation(sum, 3, 4);  // Returns: 7
-
-
-*/
-
-`,
-"Declaration: hoisted, has a name. Expression: stored in a variable, not hoisted.",
-"Arrow function: shorter syntax, no own this, cannot be used with new.",
-"IIFE runs immediately and keeps variables private. Generator uses function* and yield to pause and resume.",
-"Async function always returns a Promise and lets you use await. Constructor function is used with new to build objects."),
+  "Higher-Order Functions: Functions that take other functions as arguments or return functions."
+),
 "First-class & Higher-Order Functions":N("In JavaScript a function is just a value, like a number or a string. You can store it, pass it around and return it. That ability is called first-class functions.",
 "First-class: assign to a variable, pass as argument, return from a function.",
 "Higher-order function: a function that takes another function as input, or returns one.",
