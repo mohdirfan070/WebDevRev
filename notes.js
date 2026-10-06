@@ -1,7 +1,7 @@
 const N=(e,...p)=>({e,p});
 window.NOTES={
 // ---------- JAVASCRIPT ----------
-"Hoisting":N("** Accessing variables before initializarion **\b \n Before JavaScript runs your code, it first scans it and registers every variable and function name. So some things can be used before the line where you wrote them. Think of it as JS reading the whole menu before taking your order.",
+"Hoisting":N("Accessing variables before initializarion \n Before JavaScript runs your code, it first scans it and registers every variable and function name. So some things can be used before the line where you wrote them. Think of it as JS reading the whole menu before taking your order.",
 "var is hoisted and starts as undefined, so using it early gives undefined, not an error.",
 "Function declarations are hoisted completely, so you can call them before they are written.",
 "let and const are hoisted too, but locked in the temporal dead zone until their line runs. Using them early throws ReferenceError.",
